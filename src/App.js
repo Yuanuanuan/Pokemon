@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Card from "./components/Card/Card";
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import PokemonCard from './components/PokemonCard/PokemonCard';
 import './style.scss';
 
 
@@ -67,9 +68,7 @@ function App() {
                }
             </div>
           </div>
-          <div className='pokemon-box'>
-            <div className='box-card'></div>
-          </div>
+          <PokemonCard />
         </div>
       </div>
       <Footer />

@@ -1,0 +1,11 @@
+.pokemon-card-wrapper {
+  width: 40%;
+  height: 70vh;
+  .pokemon-card-box {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #e8e8e8;
+    border-radius: 24px;
+  }
+}
