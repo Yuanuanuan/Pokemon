@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './style.scss';
 
-const Card = ({ item }) => {
+const Card = ({ item, isShiny }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -10,7 +10,6 @@ const Card = ({ item }) => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        console.log(data);
       })
   }, [item])
 
@@ -31,7 +30,11 @@ const Card = ({ item }) => {
           </div>
         </div>
         <div className="pokemon-image flex">
-          <img src={data.sprites.other.home.front_default} alt="" />
+          <img src={
+            isShiny ? 
+            data.sprites.other.home.front_shiny : 
+            data.sprites.other.home.front_default
+            } alt="" />
         </div>
         <div className='pokemon-ball'>
           <div className={`ball-inside ${data.types[0].type.name}`}></div>

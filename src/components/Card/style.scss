@@ -7,7 +7,7 @@
 .card {
   width: 300px;
   height: 200px;
-  border-radius: 32px;
+  border-radius: 32px 0 32px;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   position: relative;
@@ -31,64 +31,6 @@
   }
   &:hover::after {
     transform: translate(-50%, -50%) scale(1, 1);
-  }
-  
-  &.grass {
-    background-color: #49d0b0;
-  }
-  &.fire {
-    background-color: #fb6d6c;
-  }
-  &.normal {
-    background-color: #9fa19f;
-  }
-  &.fighting {
-    background-color: #ff8000;
-  }
-  &.flying {
-    background-color: #81b9ef;
-  }
-  &.poison {
-    background-color: #9141cb;
-  }
-  &.ground {
-    background-color: #915121;
-  }
-  &.rock {
-    background-color: #afa981;
-  }
-  &.bug {
-    background-color: #aab937;
-  }
-  &.ghost {
-    background-color: #704170;
-  }
-  &.steel {
-    background-color: #60a1b8;
-  }
-  &.water {
-    background-color: #75befc;
-  }
-  &.electric {
-    background-color: #fac000;
-  }
-  &.psychic {
-    background-color: #ef4179;
-  }
-  &.ice {
-    background-color: #3fd8ff;
-  }
-  &.dragon {
-    background-color: #5060e1;
-  }
-  &.dark, &.shadow {
-    background-color: #646464;
-  }
-  &.fairy {
-    background-color: #ef70ef;
-  }
-  &.unknown {
-    background-color: #c9c9c9;
   }
   .pokemon-info {
     min-height: 140px;
@@ -238,5 +180,66 @@
       border-radius: 50%;
       background-color: #ffffff60;
     }
+  }
+}
+
+// set color
+.card {
+  &.grass {
+    background-color: #49d0b0;
+  }
+  &.fire {
+    background-color: #fb6d6c;
+  }
+  &.normal {
+    background-color: #9fa19f;
+  }
+  &.fighting {
+    background-color: #ff8000;
+  }
+  &.flying {
+    background-color: #81b9ef;
+  }
+  &.poison {
+    background-color: #9141cb;
+  }
+  &.ground {
+    background-color: #915121;
+  }
+  &.rock {
+    background-color: #afa981;
+  }
+  &.bug {
+    background-color: #aab937;
+  }
+  &.ghost {
+    background-color: #704170;
+  }
+  &.steel {
+    background-color: #60a1b8;
+  }
+  &.water {
+    background-color: #75befc;
+  }
+  &.electric {
+    background-color: #fac000;
+  }
+  &.psychic {
+    background-color: #ef4179;
+  }
+  &.ice {
+    background-color: #3fd8ff;
+  }
+  &.dragon {
+    background-color: #5060e1;
+  }
+  &.dark, &.shadow {
+    background-color: #646464;
+  }
+  &.fairy {
+    background-color: #ef70ef;
+  }
+  &.unknown {
+    background-color: #c9c9c9;
   }
 }
