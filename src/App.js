@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
+import './style.scss';
 
 
 function App() {
@@ -13,7 +14,6 @@ function App() {
     })
     .then((data) => {
       setData(data.results);
-      console.log(data.results);
     })
   }
 
@@ -23,7 +23,11 @@ function App() {
 
   return (
     <div className="App">
-      {data && data.map((item) => <Card item={item} />)}
+      <div className='cards'>
+        {data && data.map(
+          (item) => <Card key={item.name} item={item} />
+        )}
+      </div>
     </div>
   );
 }
