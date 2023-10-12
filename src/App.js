@@ -12,6 +12,19 @@ function App() {
   const [isShiny, setIsShiny] = useState(false);
   const [lovePokemon, setLovePokemon] = useState([]);
   const [loveUpdate, setLoveUpdate] = useState(false);
+  const [pokemonInfo, setPokemonInfo] = useState(null);
+
+
+  const handleClick = (e) => {
+    console.log(e.target)
+    setPokemonInfo(e.target.dataset.url)
+    const loveIcon = document.querySelector('.love-icon');
+
+    loveIcon.classList.remove('active')
+    if (lovePokemon.find((item) => item === pokemonInfo)) {
+      loveIcon.classList.add('active')
+    }
+  }
 
   return (
     <BrowserRouter>
@@ -25,6 +38,9 @@ function App() {
               setLovePokemon={setLovePokemon}
               loveUpdate={loveUpdate}
               setLoveUpdate={setLoveUpdate}
+              pokemonInfo={pokemonInfo}
+              setPokemonInfo={setPokemonInfo}
+              ClickCard={(e) => handleClick(e)}
               />
               }></Route>
             <Route path="/favorite" element={
@@ -34,6 +50,9 @@ function App() {
               setLovePokemon={setLovePokemon}
               loveUpdate={loveUpdate}
               setLoveUpdate={setLoveUpdate}
+              pokemonInfo={pokemonInfo}
+              setPokemonInfo={setPokemonInfo}
+              ClickCard={(e) => handleClick(e)}
               />
               }></Route>
             <Route path="*" element={<Page404 />}></Route>

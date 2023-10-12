@@ -2,9 +2,17 @@ import { useState, useEffect } from 'react';
 import Card from "../components/Card/Card";
 import PokemonCard from '../components/PokemonCard/PokemonCard';
 
-const Favoritepage = ({ isShiny, lovePokemon, setLovePokemon, loveUpdate, setLoveUpdate }) => {
+const Favoritepage = ({ 
+  isShiny, 
+  lovePokemon, 
+  setLovePokemon, 
+  loveUpdate, 
+  pokemonInfo,
+  setPokemonInfo,
+  setLoveUpdate,
+  ClickCard,
+ }) => {
   const [data, setData] = useState([]);
-  const [first, setFirst] = useState(lovePokemon[lovePokemon.length - 1])
 
   const fetchData = () => {
     setData([]);
@@ -23,7 +31,7 @@ const Favoritepage = ({ isShiny, lovePokemon, setLovePokemon, loveUpdate, setLov
 
   useEffect(() => {
     fetchData();
-    setFirst(lovePokemon[0]);
+    setPokemonInfo(lovePokemon[0]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lovePokemon])
 
@@ -38,12 +46,13 @@ const Favoritepage = ({ isShiny, lovePokemon, setLovePokemon, loveUpdate, setLov
                 key={item.url} 
                 item={item}
                 isShiny={isShiny}
+                onClick={(e) => ClickCard(e)}
                 />
               )}
             </div>
           </div>
           <PokemonCard 
-          data={first}
+          data={pokemonInfo}
           isShiny={isShiny}
           lovePokemon={lovePokemon}
           setLovePokemon={setLovePokemon}

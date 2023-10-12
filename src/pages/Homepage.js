@@ -9,12 +9,14 @@ const Homepage = ({
   lovePokemon, 
   setLovePokemon,
   loveUpdate,
-  setLoveUpdate
+  setLoveUpdate,
+  pokemonInfo,
+  setPokemonInfo,
+  ClickCard,
  }) => {
   const [data, setData] = useState(null);
   const [nextUrl, setNextUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [pokemonInfo, setPokemonInfo] = useState(null);
 
   const fetchData = () => {
     fetch('https://pokeapi.co/api/v2/pokemon')
@@ -39,18 +41,9 @@ const Homepage = ({
     .then(() => setIsLoading(false))
   }
 
-  const ClickCard = (e) => {
-    setPokemonInfo(e.target.dataset.url)
-    const loveIcon = document.querySelector('.love-icon');
-
-    loveIcon.classList.remove('active')
-    if (lovePokemon.find((item) => item === pokemonInfo)) {
-      loveIcon.classList.add('active')
-    }
-  }
-
   useEffect(() => {
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -72,7 +65,7 @@ const Homepage = ({
                 key={item.name} 
                 item={item}
                 isShiny={isShiny} 
-                onClick={ClickCard}
+                onClick={(e) => ClickCard(e)}
                 />
               )}
             </div>
