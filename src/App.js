@@ -22,7 +22,7 @@ function App() {
     .then((data) => {
       setData(data.results);
       setNextUrl(data.next);
-      setPokemonInfo(data.results[5]);
+      setPokemonInfo(data.results[0].url);
     })
   }
 
@@ -37,6 +37,10 @@ function App() {
       setNextUrl(data.next);
     })
     .then(() => setIsLoading(false))
+  }
+
+  const ClickCard = (e) => {
+    setPokemonInfo(e.target.dataset.url)
   }
 
   useEffect(() => {
@@ -56,6 +60,7 @@ function App() {
                 key={item.name} 
                 item={item}
                 isShiny={isShiny} 
+                onClick={ClickCard}
                 />
               )}
             </div>

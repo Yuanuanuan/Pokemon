@@ -8,11 +8,10 @@ const PokemonCard = ({ data, isShiny }) => {
   const [info, setInfo] = useState(null);
 
   const getPokemonInfo = () => {
-    if (data && data.url) {
-      fetch(data.url)
+    if (data) {
+      fetch(data)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setInfo(data);
       })
     }

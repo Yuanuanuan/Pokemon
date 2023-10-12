@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './style.scss';
 
-const Card = ({ item, isShiny }) => {
+const Card = ({ item, isShiny, onClick }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Card = ({ item, isShiny }) => {
   return (
     <>
       {data && 
-      <div className={`card ${data.types[0].type.name}`}>
+      <div className={`card ${data.types[0].type.name}`} data-url={item.url} onClick={onClick}>
         <div className='pokemon-info'>
           <div className="pokemon-name">
             {data.name.slice(0, 1).toUpperCase() + data.name.slice(1)}

@@ -17,6 +17,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  * {
+    pointer-events: none;
+  }
   &::after {
     content: '';
     width: 400px;
@@ -76,6 +79,7 @@
     right: 0;
     z-index: 1;
     border-radius: 32px;
+    pointer-events: none;
     // color set
     .ball-inside {
       &.grass {
