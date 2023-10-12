@@ -13,6 +13,7 @@ function App() {
   const [nextUrl, setNextUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [pokemonInfo, setPokemonInfo] = useState(null);
+  const [lovePokemon, setLovePokemon] = useState([]);
 
   const fetchData = () => {
     fetch('https://pokeapi.co/api/v2/pokemon')
@@ -47,6 +48,13 @@ function App() {
     fetchData();
   }, [])
 
+  useEffect(() => {
+    const lovePokemon = JSON.parse(localStorage.getItem('pokemon'));
+    if (lovePokemon) {
+      setLovePokemon(lovePokemon);
+    }
+  }, [pokemonInfo])
+
   return (
     <div className="App">
       <Header isShiny={isShiny} setIsShiny={setIsShiny} />
@@ -77,7 +85,8 @@ function App() {
           </div>
           <PokemonCard 
           data={pokemonInfo}
-          isShiny={isShiny} 
+          isShiny={isShiny}
+          lovePokemon={lovePokemon}
           />
         </div>
       </div>

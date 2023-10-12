@@ -14,7 +14,7 @@ const About = ({ data }) => {
           <div className="weight flexStart">
             <h1 className="text">Weight : </h1>
             <div className="value">
-              {(data.weight / 100).toFixed(2)} kg
+              {(data.weight / 10).toFixed(1)} kg
             </div>
           </div>
         </div>
@@ -37,5 +37,3 @@ const About = ({ data }) => {
 }
 
 export default About;
-
-// 基礎經驗值: data.base_experience
