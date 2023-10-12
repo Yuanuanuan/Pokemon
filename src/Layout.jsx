@@ -7,8 +7,13 @@ import logo from './images/pokemon-logo.png';
 const Layout = ({isShiny, setIsShiny}) => {
 
   const handleClick = () => {
+    const toggleBtn = document.querySelector('.toggle-btn')
+    if (!isShiny) {
+      toggleBtn.innerText = 'QRIGINAL';
+    } else {
+      toggleBtn.innerText = 'SHINY';
+    }
     setIsShiny(!isShiny);
-    console.log(isShiny);
   }
 
   return (
