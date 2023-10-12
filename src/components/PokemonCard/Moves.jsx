@@ -1,9 +1,9 @@
 
 
 
-const Moves = () => {
+const Moves = ({ data }) => {
   return (
-    <div></div>
+    <div>123</div>
   )
 }
 

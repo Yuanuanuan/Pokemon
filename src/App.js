@@ -12,6 +12,7 @@ function App() {
   const [isShiny, setIsShiny] = useState(false);
   const [nextUrl, setNextUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [pokemonInfo, setPokemonInfo] = useState(null);
 
   const fetchData = () => {
     fetch('https://pokeapi.co/api/v2/pokemon')
@@ -21,6 +22,7 @@ function App() {
     .then((data) => {
       setData(data.results);
       setNextUrl(data.next);
+      setPokemonInfo(data.results[5]);
     })
   }
 
@@ -68,7 +70,10 @@ function App() {
                }
             </div>
           </div>
-          <PokemonCard />
+          <PokemonCard 
+          data={pokemonInfo}
+          isShiny={isShiny} 
+          />
         </div>
       </div>
       <Footer />
