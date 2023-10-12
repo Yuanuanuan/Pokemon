@@ -9,11 +9,11 @@ const Layout = ({isShiny, setIsShiny}) => {
   const handleClick = () => {
     const toggleBtn = document.querySelector('.toggle-btn')
     if (!isShiny) {
-      toggleBtn.innerText = 'QRIGINAL'
+      toggleBtn.innerText = 'QRIGINAL';
     } else {
-      toggleBtn.innerText = 'SHINY'
+      toggleBtn.innerText = 'SHINY';
     }
-    setIsShiny(!isShiny)
+    setIsShiny(!isShiny);
   }
 
   return (
