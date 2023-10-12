@@ -11,7 +11,7 @@
     .box-top {
       width: 100%;
       height: 45%;
-      padding: 1rem 1rem 0;
+      padding: 1rem 1.5rem 0;
       font-family: 'Poppins', sans-serif;
       position: relative;
       .header {
@@ -19,6 +19,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+        z-index: 4;
         .name {
           font-size: 2rem;
           font-family: 'Poppins', serif;
@@ -45,6 +47,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+        z-index: 4;
         .types {
           display: flex;
           .type {
@@ -67,7 +71,7 @@
         position: absolute;
         bottom: -2rem;
         left: 50%;
-        z-index: 8;
+        z-index: 3;
         transform: translateX(-50%);
         display: flex;
         img {
@@ -196,6 +200,51 @@
       height: 55%;
       background-color: #fdfdfd;
       border-radius: 22px;
+      font-family: 'Poppins', sans-serif;
+      .navBar {
+        margin-top: 2rem;
+        width: 100%;
+        .nav-box {
+          margin: 0 1rem .5rem;
+          font-weight: 400;
+          color: #9a9a9a;
+          border-bottom: 1px solid #c9c9c9;
+          cursor: pointer;
+
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          text-align: center;
+          .about.active,
+          .moves.active {
+            color: #222;
+            border-bottom: 2px solid #222;
+            font-weight: 500;
+          }
+        }
+      }
+      .info-content {
+        width: 100%;
+        max-height: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 0 2rem;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .moves-wrapper {
+          .moves-box {
+            .moves-content {
+              display: flex;
+              flex-wrap: wrap;
+              h3 {
+                width: 50%;
+                font-size: 1rem;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -258,4 +307,28 @@
   &.unknown {
     background-color: #c9c9c9;
   }
+}
+
+.title {
+  margin: .5rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #9a9a9a;
+  width: 180px;
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }

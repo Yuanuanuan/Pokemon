@@ -6,6 +6,7 @@ import Moves from './Moves';
 
 const PokemonCard = ({ data, isShiny }) => {
   const [info, setInfo] = useState(null);
+  const [nav, setNav] = useState('about');
 
   const getPokemonInfo = () => {
     if (data) {
@@ -27,7 +28,7 @@ const PokemonCard = ({ data, isShiny }) => {
   }
 
   const clickNav = (e) => {
-    console.log(e.target)
+    setNav(e.target.classList[0])
   }
 
   useEffect(() => {
@@ -88,8 +89,18 @@ const PokemonCard = ({ data, isShiny }) => {
             </div>
           </div>
           <div className='box-bottom'>
-            <About data={info} />
-            <Moves data={info} />
+            <div className='navBar'>
+              <div className='nav-box' onClick={clickNav}>
+                <div className={`about ${nav === 'about' ? 'active' : null}`}>About</div>
+                <div className={`moves ${nav === 'moves' ? 'active' : null}`}>Moves</div>
+              </div>
+            </div>
+            <div className='info-content'>
+              {nav === 'about' ?
+              <About data={info} /> :
+              <Moves data={info} />
+              }
+            </div>
           </div>
         </div>
       </div>
