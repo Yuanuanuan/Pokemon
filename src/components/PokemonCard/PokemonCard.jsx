@@ -8,16 +8,6 @@ const PokemonCard = ({ data, isShiny }) => {
   const [info, setInfo] = useState(null);
   const [nav, setNav] = useState('about');
 
-  const getPokemonInfo = () => {
-    if (data) {
-      fetch(data)
-      .then((res) => res.json())
-      .then((data) => {
-        setInfo(data);
-      })
-    }
-  }
-
   const clickLove = (e) => {
     console.log(e.target)
     if (e.target.classList.contains('active')) {
@@ -32,6 +22,16 @@ const PokemonCard = ({ data, isShiny }) => {
   }
 
   useEffect(() => {
+    const getPokemonInfo = () => {
+      if (data) {
+        fetch(data)
+        .then((res) => res.json())
+        .then((data) => {
+          setInfo(data);
+        })
+      }
+    };
+    
     getPokemonInfo();
   }, [data])
 

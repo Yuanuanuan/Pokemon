@@ -7,11 +7,11 @@ const About = ({ data }) => {
       <div className="about-box">
         <div className="stature-box">
           <h1 className="title">Stature</h1>
-          <div className="height flex-start">
+          <div className="height flexStart">
             <h1 className="text">Height : </h1>
             <div className="value">{data.height * 10} cm</div>
           </div>
-          <div className="weight flex-start">
+          <div className="weight flexStart">
             <h1 className="text">Weight : </h1>
             <div className="value">
               {(data.weight / 100).toFixed(2)} kg
@@ -23,7 +23,7 @@ const About = ({ data }) => {
           <div className="stats-info">
             {data.stats.map((stat, index) => {
               return (
-              <div className="stat flex-start" key={index} >
+              <div className="stat flexStart" key={index} >
                 <h1 className="text">{stat.stat.name}</h1>
                 <div className="value">{stat.base_stat}</div>
               </div>
