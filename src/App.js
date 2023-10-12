@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import Page404 from "./pages/Page404";
 import Favoritepage from "./pages/Favoritepage";
 import Layout from "./Layout";
 
@@ -55,7 +54,6 @@ function App() {
               ClickCard={(e) => handleClick(e)}
               />
               }></Route>
-            <Route path="*" element={<Page404 />}></Route>
           </Route>
         </Route>
       </Routes>
