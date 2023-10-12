@@ -7,7 +7,7 @@ import Moves from './Moves';
 const PokemonCard = ({ data, isShiny, lovePokemon }) => {
   const [info, setInfo] = useState(null);
   const [nav, setNav] = useState('about');
-  const [isLoved, setIsLoved] = useState(false);
+  
 
   const clickLove = (e) => {
     const favorite = JSON.parse(localStorage.getItem('pokemon')) || [];
@@ -22,13 +22,6 @@ const PokemonCard = ({ data, isShiny, lovePokemon }) => {
         localStorage.setItem('pokemon', JSON.stringify(favorite));
       }
     }
-
-    if(lovePokemon.includes(data)) {
-      setIsLoved(true);
-    } else {
-      setIsLoved(false);
-    }
-    console.log(isLoved)
   }
 
   const clickNav = (e) => {
@@ -49,14 +42,6 @@ const PokemonCard = ({ data, isShiny, lovePokemon }) => {
     getPokemonInfo();
   }, [data])
 
-  // useEffect(() => {
-  //   if(lovePokemon.includes(data)) {
-  //     setIsLoved(true);
-  //     return
-  //   }
-  //     setIsLoved(false);
-  // }, [data])
-
   return (
     <>
       {info &&
@@ -65,7 +50,7 @@ const PokemonCard = ({ data, isShiny, lovePokemon }) => {
           <div className='box-top'>
             <div className='header'>
               <div className='name'>{info.name}</div>
-              <div className={`love-icon ${isLoved ? 'active' : null}`} onClick={(e) => clickLove(e)}>
+              <div className={`love-icon ${lovePokemon.find((item) => item === data) ? 'active' : ''}`} onClick={(e) => clickLove(e)}>
                 <svg viewBox="0 0 24 24" fill="none">
                   <g strokeWidth="0"></g>
                   <g strokeLinecap="round" strokeLinejoin="round"></g>

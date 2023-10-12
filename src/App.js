@@ -42,6 +42,12 @@ function App() {
 
   const ClickCard = (e) => {
     setPokemonInfo(e.target.dataset.url)
+    const loveIcon = document.querySelector('.love-icon');
+
+    loveIcon.classList.remove('active')
+    if (lovePokemon.find((item) => item === pokemonInfo)) {
+      loveIcon.classList.add('active')
+    }
   }
 
   useEffect(() => {
