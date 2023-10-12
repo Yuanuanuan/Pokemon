@@ -1,10 +1,12 @@
 
 import Footer from './components/Footer/Footer';
+import { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import './style.scss';
 import logo from './images/pokemon-logo.png';
 
 const Layout = ({isShiny, setIsShiny}) => {
+  const [state, setState] = useState('home')
 
   const handleClick = () => {
     const toggleBtn = document.querySelector('.toggle-btn')
@@ -16,6 +18,14 @@ const Layout = ({isShiny, setIsShiny}) => {
     setIsShiny(!isShiny);
   }
 
+  const clickHome = () => {
+    setState('home')
+  }
+
+  const clickFavorite = () => {
+    setState('favorite')
+  }
+
   return (
     <>
       <div className='header-wrapper'>
@@ -23,11 +33,11 @@ const Layout = ({isShiny, setIsShiny}) => {
           <img src={logo} alt="" />
         </div>
         <div className='tools flex'>
-          <Link to='/' className='link'>
-            <div className='Home'>Home</div>
+          <Link to='/' className='link' onClick={clickHome}>
+            <div className={`home ${state === 'home' ? 'active' : null}`}>Home</div>
           </Link>
-          <Link to='/favorite' className='link'>
-          <div className='favorite'>Favorite</div>
+          <Link to='/favorite' className='link' onClick={clickFavorite}>
+          <div className={`favorite ${state === 'favorite' ? 'active' : null}`}>Favorite</div>
           </Link>
           <div className='toggle-btn' onClick={handleClick} >
             SHINY

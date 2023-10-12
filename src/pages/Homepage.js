@@ -4,18 +4,21 @@ import Card from "../components/Card/Card";
 import PokemonCard from '../components/PokemonCard/PokemonCard';
 import './_homepage.scss';
 
-const Homepage = ({ isShiny }) => {
+const Homepage = ({ 
+  isShiny, 
+  lovePokemon, 
+  setLovePokemon,
+  loveUpdate,
+  setLoveUpdate
+ }) => {
   const [data, setData] = useState(null);
   const [nextUrl, setNextUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [pokemonInfo, setPokemonInfo] = useState(null);
-  const [lovePokemon, setLovePokemon] = useState([]);
 
   const fetchData = () => {
     fetch('https://pokeapi.co/api/v2/pokemon')
-    .then((res) => {
-      return res.json();
-    })
+    .then((res) => res.json())
     .then((data) => {
       setData(data.results);
       setNextUrl(data.next);
@@ -55,7 +58,8 @@ const Homepage = ({ isShiny }) => {
     if (lovePokemon) {
       setLovePokemon(lovePokemon);
     }
-  }, [pokemonInfo])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemonInfo, loveUpdate])
 
   return (
     <div className='main-container'>
@@ -87,6 +91,9 @@ const Homepage = ({ isShiny }) => {
           data={pokemonInfo}
           isShiny={isShiny}
           lovePokemon={lovePokemon}
+          setLovePokemon={setLovePokemon}
+          loveUpdate={loveUpdate}
+          setLoveUpdate={setLoveUpdate}
           />
         </div>
       </div>

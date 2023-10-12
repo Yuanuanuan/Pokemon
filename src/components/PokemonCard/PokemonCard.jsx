@@ -4,7 +4,7 @@ import './style.scss';
 import About from './About';
 import Moves from './Moves';
 
-const PokemonCard = ({ data, isShiny, lovePokemon }) => {
+const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, setLoveUpdate }) => {
   const [info, setInfo] = useState(null);
   const [nav, setNav] = useState('about');
   
@@ -22,6 +22,7 @@ const PokemonCard = ({ data, isShiny, lovePokemon }) => {
         localStorage.setItem('pokemon', JSON.stringify(favorite));
       }
     }
+    setLoveUpdate(true);
   }
 
   const clickNav = (e) => {
@@ -41,6 +42,14 @@ const PokemonCard = ({ data, isShiny, lovePokemon }) => {
 
     getPokemonInfo();
   }, [data])
+
+  useEffect(() => {
+    if (loveUpdate) {
+      setLovePokemon(JSON.parse(localStorage.getItem('pokemon')));
+    }
+    setLoveUpdate(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loveUpdate]);
 
   return (
     <>
@@ -117,7 +126,3 @@ const PokemonCard = ({ data, isShiny, lovePokemon }) => {
 }
 
 export default PokemonCard;
-
-// types: data.types[0].type.name
-
-// id: data.id
