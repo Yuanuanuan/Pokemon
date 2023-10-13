@@ -4,7 +4,7 @@ import './style.scss';
 import About from './About';
 import Moves from './Moves';
 
-const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, setLoveUpdate }) => {
+const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, setLoveUpdate, searching, resultData }) => {
   const [info, setInfo] = useState(null);
   const [nav, setNav] = useState('about');
   
@@ -31,17 +31,21 @@ const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, s
 
   useEffect(() => {
     const getPokemonInfo = () => {
-      if (data) {
-        fetch(data)
-        .then((res) => res.json())
-        .then((data) => {
-          setInfo(data);
-        })
+      if (searching) {
+        setInfo(resultData);
+      } else {
+        if (data) {
+          fetch(data)
+          .then((res) => res.json())
+          .then((data) => {
+            setInfo(data);
+          })
+        }
       }
     };
 
     getPokemonInfo();
-  }, [data])
+  }, [data, resultData, searching])
 
   useEffect(() => {
     if (loveUpdate) {

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Card from "../components/Card/Card";
 import PokemonCard from '../components/PokemonCard/PokemonCard';
+import Search from '../components/Search/Search';
 import './_homepage.scss';
 
 const Homepage = ({ 
@@ -17,6 +18,9 @@ const Homepage = ({
   const [data, setData] = useState(null);
   const [nextUrl, setNextUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [resultData, setResultData] = useState([]);
+  const [searching, setSearching] = useState(false);
 
   const fetchData = () => {
     fetch('https://pokeapi.co/api/v2/pokemon')
@@ -58,6 +62,23 @@ const Homepage = ({
     <div className='main-container'>
         <div className='main-container-wrapper flex'>
           <div className='cards-container'>
+            <Search 
+            inputValue={inputValue} 
+            setInputValue={setInputValue}
+            resultData={resultData}
+            setResultData={setResultData}
+            setSearching={setSearching}
+            />
+            {searching ? 
+            <div className='cards flex'>
+              {resultData && 
+                <Card 
+                key={resultData.name} 
+                item={{url :`https://pokeapi.co/api/v2/pokemon/${resultData.id}`}}
+                isShiny={isShiny} 
+                onClick={(e) => ClickCard(e)}
+                />}
+            </div> : 
             <div className='cards flex'>
               {data && data.map(
                 (item) => 
@@ -69,6 +90,8 @@ const Homepage = ({
                 />
               )}
             </div>
+            }
+            {searching ? null : 
             <div className='learn-more flex'>
               {isLoading ?
                 <div className="lds-facebook">
@@ -78,7 +101,7 @@ const Homepage = ({
                 </div> : 
                <button className='learn-more-btn' onClick={nextData}>Learn More</button>
                }
-            </div>
+            </div>}
           </div>
           <PokemonCard 
           data={pokemonInfo}
@@ -87,6 +110,8 @@ const Homepage = ({
           setLovePokemon={setLovePokemon}
           loveUpdate={loveUpdate}
           setLoveUpdate={setLoveUpdate}
+          searching={searching}
+          resultData={resultData}
           />
         </div>
       </div>
