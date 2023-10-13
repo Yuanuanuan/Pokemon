@@ -146,3 +146,34 @@
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
+@media screen and (max-width: 1159px) {
+  .main-container {
+    .main-container-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1027px) {
+  .main-container {
+    .main-container-wrapper {
+      .cards-container {
+        width: 450px;
+      }
+      .pokemon-card-wrapper {
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .main-container {
+    .main-container-wrapper {
+      .cards-container {
+        width: 400px;
+      }
+    }
+  }
+}

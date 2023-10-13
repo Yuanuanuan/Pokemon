@@ -201,6 +201,7 @@
       background-color: #fdfdfd;
       border-radius: 22px;
       font-family: 'Poppins', sans-serif;
+      overflow: hidden;
       .navBar {
         margin-top: 2rem;
         width: 100%;
@@ -224,12 +225,19 @@
       }
       .info-content {
         width: 100%;
-        max-height: 300px;
-        overflow-x: hidden;
-        overflow-y: scroll;
+        height: calc(100% - 80px);
         padding: 0 2rem;
+        overflow-y: scroll;
         &::-webkit-scrollbar {
           display: none;
+        }
+        .about-wrapper {
+          .about-box {
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
         }
         .moves-wrapper {
           .moves-box {
@@ -331,4 +339,23 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+
+@media screen and (max-width: 899px) {
+  .pokemon-card-wrapper {
+    width: 350px;
+    height: 60vh;
+    .pokemon-card-box {
+      width: 350px;
+      .box-top {
+        .pokemon-image {
+          img {
+            width: 250px;
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
 }

@@ -34,3 +34,26 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1027px) {
+  .search-wrapper {
+    .search-box {
+      width: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .search-wrapper {
+    .search-box {
+      width: 300px;
+      input {
+        font-size: 1.15rem;
+        &::placeholder {
+          font-size: 1.15rem;
+        }
+      }
+    }
+  }
+}
