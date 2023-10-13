@@ -1,12 +1,10 @@
 
 import Footer from './components/Footer/Footer';
-import { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import './style.scss';
 import logo from './images/pokemon-logo.png';
 
-const Layout = ({isShiny, setIsShiny}) => {
-  const [state, setState] = useState('home')
+const Layout = ({isShiny, setIsShiny, state, setState }) => {
 
   const handleClick = () => {
     const toggleBtn = document.querySelector('.toggle-btn')

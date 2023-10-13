@@ -78,6 +78,61 @@
         }
       }
     }
+    .no-favorite {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      h1 {
+        font-size: 3rem;
+        font-weight: 500;
+      }
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: #FFCE02;
+      }
+      .find-btn {
+        display: block;
+        border: none;
+        margin: 1rem auto;
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        background-color: transparent;
+        padding: .5rem 2rem;
+        border: 2px solid #2B56B1;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform .5s ease;
+        &::after {
+          content: '';
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform: translate(-50%, 50%) scale(0, 0);
+          background-color: #2B56B1;
+          transition: transform .6s ease;
+        }
+        &:hover {
+          transform: translate(10px, 10px);
+        }
+        &:hover .link {
+          color: #f5f6f7;
+        }
+        &:hover::after {
+          transform: translate(-50%, 50%) scale(1, 1);
+        }
+        .link {
+          text-decoration: none;
+          color: #222;
+          position: relative;
+          z-index: 3;
+          transition: color .5s ease;
+        }
+      }
+    }
   }
 }
 

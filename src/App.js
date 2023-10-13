@@ -12,10 +12,10 @@ function App() {
   const [lovePokemon, setLovePokemon] = useState([]);
   const [loveUpdate, setLoveUpdate] = useState(false);
   const [pokemonInfo, setPokemonInfo] = useState(null);
+  const [state, setState] = useState('home')
 
 
   const handleClick = (e) => {
-    console.log(e.target)
     setPokemonInfo(e.target.dataset.url)
     const loveIcon = document.querySelector('.love-icon');
 
@@ -29,7 +29,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route>
-          <Route path="/" element={<Layout isShiny={isShiny} setIsShiny={setIsShiny} />}>
+          <Route path="/" element={
+            <Layout 
+            isShiny={isShiny} 
+            setIsShiny={setIsShiny} 
+            state={state}
+            setState={setState}
+            />
+          }>
             <Route index element={
               <Homepage 
               isShiny={isShiny}
@@ -52,6 +59,7 @@ function App() {
               pokemonInfo={pokemonInfo}
               setPokemonInfo={setPokemonInfo}
               ClickCard={(e) => handleClick(e)}
+              setState={setState}
               />
               }></Route>
           </Route>

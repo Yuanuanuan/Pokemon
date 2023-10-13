@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import Card from "../components/Card/Card";
 import PokemonCard from '../components/PokemonCard/PokemonCard';
 
@@ -11,6 +12,7 @@ const Favoritepage = ({
   setPokemonInfo,
   setLoveUpdate,
   ClickCard,
+  setState
  }) => {
   const [data, setData] = useState([]);
 
@@ -29,6 +31,10 @@ const Favoritepage = ({
     }
   }
 
+  const handleClick = () => {
+    setState('home')
+  }
+
   useEffect(() => {
     fetchData();
     setPokemonInfo(lovePokemon[0]);
@@ -37,6 +43,7 @@ const Favoritepage = ({
 
   return (
     <div className='main-container'>
+        {lovePokemon && lovePokemon.length > 0 ? 
         <div className='main-container-wrapper flex'>
           <div className='cards-container'>
             <div className='cards flex'>
@@ -59,7 +66,19 @@ const Favoritepage = ({
           loveUpdate={loveUpdate}
           setLoveUpdate={setLoveUpdate}
           />
+        </div> :
+        <div className='main-container-wrapper flex'>
+          <div className='no-favorite'>
+            <h1>You haven't added any likes yet.</h1>
+            <h2>Go to find your favorite Pokemon!</h2>
+            <button className='find-btn'>
+              <Link to="/" className='link' onClick={handleClick}>
+                Find
+              </Link>
+            </button>
+          </div>
         </div>
+        }
       </div>
   )
 }
