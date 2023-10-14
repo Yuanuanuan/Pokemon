@@ -71,13 +71,17 @@ const Homepage = ({
             />
             {searching ? 
             <div className='cards flex'>
-              {resultData && 
+              {resultData && resultData ? 
                 <Card 
                 key={resultData.name} 
                 item={{url :`https://pokeapi.co/api/v2/pokemon/${resultData.id}`}}
                 isShiny={isShiny} 
                 onClick={(e) => ClickCard(e)}
-                />}
+                /> : 
+                <div className='not-found-wrapper'>
+                  <h1>No matching Pokémon found</h1>
+                </div> 
+              }
             </div> : 
             <div className='cards flex'>
               {data && data.map(

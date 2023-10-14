@@ -14,11 +14,19 @@ const Search = ({ inputValue, setInputValue, resultData, setResultData, setSearc
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue.toLowerCase()}`)
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 404) {
+            setResultData([]);
+            console.log('error');
+            return
+          }
+          return res.json()
+        })
         .then((data) => {
           setResultData(data);
           setSearching(true);
         })
+        .catch((err) => console.log(err.message))
     }
   }
 
