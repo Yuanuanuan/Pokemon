@@ -1,4 +1,5 @@
 # Pokemon illustrated handbook
+![cover](./src/images/website-cover.PNG)
 ## 介紹
 - 這是一個可以瀏覽神奇寶貝的網站
 ## 功能
