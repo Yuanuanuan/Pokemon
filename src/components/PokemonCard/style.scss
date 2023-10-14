@@ -420,3 +420,12 @@
     }
   }
 }
+
+@media screen and (max-width: 450px) {
+  .pokemon-card-wrapper {
+    .pokemon-card-box {
+      width: 300px;
+      height: 90%;
+    }
+  }
+}
