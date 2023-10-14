@@ -171,6 +171,18 @@
       .cards-container {
         width: 400px;
       }
+      .no-favorite {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        .find-btn {
+          font-size: 1.25rem;
+          padding: .5rem 1.5rem;
+        }
+      }
     }
   }
 }
@@ -180,6 +192,14 @@
     .main-container-wrapper {
       .cards-container {
         width: 350px;
+      }
+      .no-favorite {
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
       }
     }
   }
