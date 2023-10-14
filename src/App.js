@@ -18,11 +18,14 @@ function App() {
   const handleClick = (e) => {
     setPokemonInfo(e.target.dataset.url)
     const loveIcon = document.querySelector('.love-icon');
+    const pokemonCard = document.querySelector('.pokemon-card-wrapper')
 
     loveIcon.classList.remove('active')
     if (lovePokemon.find((item) => item === pokemonInfo)) {
       loveIcon.classList.add('active')
     }
+
+    pokemonCard.style.display = 'flex';
   }
 
   return (

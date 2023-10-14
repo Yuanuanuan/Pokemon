@@ -161,9 +161,6 @@
       .cards-container {
         width: 450px;
       }
-      .pokemon-card-wrapper {
-        width: 400px;
-      }
     }
   }
 }
@@ -173,6 +170,28 @@
     .main-container-wrapper {
       .cards-container {
         width: 400px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main-container {
+    .main-container-wrapper {
+      .cards-container {
+        width: 350px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 619px) {
+  .main-container {
+    .main-container-wrapper {
+      position: relative;
+      .cards-container {
+        width: 100%;
+        padding: 0 .5rem;
       }
     }
   }

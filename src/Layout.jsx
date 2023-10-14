@@ -32,10 +32,10 @@ const Layout = ({isShiny, setIsShiny, state, setState }) => {
         </div>
         <div className='tools flex'>
           <Link to='/' className='link' onClick={clickHome}>
-            <div className={`home ${state === 'home' ? 'active' : null}`}>Home</div>
+            <div className={`home ${state === 'home' ? 'active' : ''}`}>Home</div>
           </Link>
           <Link to='/favorite' className='link' onClick={clickFavorite}>
-          <div className={`favorite ${state === 'favorite' ? 'active' : null}`}>Favorite</div>
+          <div className={`favorite ${state === 'favorite' ? 'active' : ''}`}>Favorite</div>
           </Link>
           <div className='toggle-btn' onClick={handleClick} >
             SHINY

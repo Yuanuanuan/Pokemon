@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './style.scss';
 import About from './About';
 import Moves from './Moves';
+import backIcon from '../../icons/back-icon.svg';
 
 const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, setLoveUpdate, searching, resultData }) => {
   const [info, setInfo] = useState(null);
@@ -27,6 +28,12 @@ const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, s
 
   const clickNav = (e) => {
     setNav(e.target.classList[0])
+  }
+
+  const closeCard = () => {
+    const pokemonCard = document.querySelector('.pokemon-card-wrapper')
+
+    pokemonCard.style.display = 'none';
   }
 
   useEffect(() => {
@@ -61,6 +68,9 @@ const PokemonCard = ({ data, isShiny, lovePokemon, setLovePokemon, loveUpdate, s
       <div className="pokemon-card-wrapper">
         <div className={`pokemon-card-box flex ${info.types[0].type.name}`}>
           <div className='box-top'>
+            <div className='back-icon'>
+              <img src={backIcon} alt="" onClick={closeCard} />
+            </div>
             <div className='header'>
               <div className='name'>{info.name}</div>
               <div className={`love-icon ${lovePokemon.find((item) => item === data) ? 'active' : ''}`} onClick={(e) => clickLove(e)}>

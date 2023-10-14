@@ -57,3 +57,17 @@
     }
   }
 }
+
+@media screen and (max-width: 619px) {
+  .search-wrapper {
+    .search-box {
+      width: 100%;
+      input {
+        font-size: 1.15rem;
+        &::placeholder {
+          font-size: 1.15rem;
+        }
+      }
+    }
+  }
+}
